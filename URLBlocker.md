@@ -6,7 +6,7 @@ flowchart TD
     GetConfigFile --> Download-blocklist("Check valid file")
     Download-blocklist --> Download-fail("Download Fail")
     Download-blocklist --> Correct-file("File loading")
-    Download-fail --> Initialise
+    Download-fail --> GetConfigFile
     Correct-file --> Parse-merge("Parse and merge files")
     Parse-merge --> Regex("Extract domains")
     Regex --> CombineList("Append to list")
