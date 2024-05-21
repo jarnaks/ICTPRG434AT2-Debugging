@@ -1,6 +1,6 @@
 ```mermaid
 flowchart TD
-    Start --> Initialize("Load congfiguration file")
+    Start --> Initialize("Load configuration file")
     Initialize --> Parse-command-line-options("Command Line Options")
     Parse-command-line-options --> GetConfigFile("Config file")
     GetConfigFile --> Download-blocklist("Check feedback")
