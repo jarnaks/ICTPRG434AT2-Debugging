@@ -2,7 +2,7 @@
 flowchart TD
     Start --> Initialise("Load configuration file")
     Initialise --> Parse-command-line-options("Parse Command Line Options")
-    Parse-command-line-options--> Getfileoptions{"Which files do you want to block?}
+    Parse-command-line-options--> Getfileoptions["Which files do you want to block?]
     Getfileoptions --> ReadConfigFile("Config file with URL's")
     ReadConfigFile --> Download-blocklist("Fetch block list")
     Download-blocklist --> Download-fail("Download Fail")
