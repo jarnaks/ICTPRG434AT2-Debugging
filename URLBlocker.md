@@ -11,4 +11,5 @@ flowchart TD
     Parse-merge --> Regex("Extract domains")
     Regex --> CombineList("Append to list")
     CombineList --> ModifiedHostFile("File Modified")
+    ModifiedHostFile --> ("Execute") 
 ```
