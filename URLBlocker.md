@@ -1,14 +1,15 @@
 ```mermaid
 flowchart TD
     Start --> Initialise("Load configuration file")
-    Initialise --> Parse-command-line-options("Command Line Options")
-    Parse-command-line-options --> GetConfigFile("Config file")
-    GetConfigFile --> Download-blocklist("Check valid file")
+    Initialise --> Parse-command-line-options("Parse Command Line Options")
+    Parse-command-line-options--> Getfileoptions{"Which files do you want to block?}
+    Getfileoptions --> ReadConfigFile("Config file with URL's")
+    ReadConfigFile --> Download-blocklist("Fetch block list")
     Download-blocklist --> Download-fail("Download Fail")
     Download-blocklist --> Correct-file("File loading")
     Download-fail --> Initialise
-    Correct-file --> Parse-merge("Parse and merge files")
-    Parse-merge --> Regex("Extract domains")
+    Correct-file --> Parse-merge-domainlist("Parse and merge domainlist")
+    Parse-merge-domainlist --> Regex("Extract domains")
     Regex --> CombineList("Append to list")
     CombineList --> ModifiedHostFile("File Modified")
     ModifiedHostFile --> End("Activate Updated URL Blocker") 
